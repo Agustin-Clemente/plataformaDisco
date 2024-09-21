@@ -16,13 +16,5 @@ while (nombre.length < 3) {
 
 span.innerHTML = 'Hola ' + nombre + ' <i class="fa-solid fa-ticket"></i>';
 
-/* document.addEventListener( 'DOMContentLoaded', (event) => {
-    const ticketsButton = document.getElementById( 'ticketsButton' );
-    ticketsButton.addEventListener("click", (event) => {
-    event. preventDefault();
-    alert("No quedan tiquets")
-    ticketsButton.textContent = "No quedan tickets"
-    })
-    })
-    window.onload = nombreEdad; */
+    
 

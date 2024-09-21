@@ -1,6 +1,6 @@
 
 
-aside div span{
+/* aside div span{
     color: white;
 }
 
@@ -24,7 +24,7 @@ div{
 h3{
     text-align: center;
     margin-top: 50px;
-}
+} */
 
 /* label{
     display: block;
@@ -38,7 +38,7 @@ align-items: center;
 justify-content: center;
 } */
 
-form, aside{
+/* form, aside{
     display: flex;
     flex-direction: column; 
     align-items: center; 
@@ -55,7 +55,7 @@ aside{
     width: 25%;
     height: 95vh;
     margin: 0 auto;
-    }
+    } */
 
 label{
     margin-top: 24px;
