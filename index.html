@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitomi Flor</title>
+    <link rel="shortcut icon" href="icon_88938c95d8885e7c059c7b7be447af34.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+
+    <!-- SIDEBAR -->
+
+
+    <div class="flex flex-no-wrap h-screen fixed bg-fuchsia-800">
+        <!-- Sidebar starts -->
+        <!-- Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] -->
+        <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
+        <div class="w-64 absolute sm:relative  shadow md:h-full flex-col justify-between hidden sm:flex">
+            <div>
+                <div class="h-16 w-full flex items-center justify-center mt-6">
+                    <img src="img/Flor.jpg" alt="User Icon">
+                    <span>Flor</span>
+
+                </div>
+                <ul class="mt-12">
+
+                    <a href="addAlbum.html" class="flex items-center focus:outline-none ">
+                        <li
+                            class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
+                            <span class="text-sm ml-2">Add Album</span>
+                        </li>
+                    </a>
+
+
+
+                    <a href="tours.html" class="flex items-center focus:outline-none">
+                        <li
+                            class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
+                            <span class="text-sm ml-2">Tour dates</span>
+                        </li>
+                    </a>
+
+
+
+                    <a href="javascript:void(0)" class="flex items-center focus:outline-none">
+                        <li
+                            class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
+                            <span class="text-sm ml-2">Log out</span>
+                        </li>
+                    </a>
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="w-64 z-40 absolute bg-gray-800 shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out"
+            id="mobile-nav">
+            <button aria-label="toggle sidebar" id="openSideBar"
+                class="h-10 w-10 bg-fuchsia-800 absolute right-0 mt-16 -mr-10 flex items-center shadow rounded-tr rounded-br justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded focus:ring-gray-800"
+                onclick="sidebarHandler(true)">
+                <span>→</span>
+            </button>
+            <button aria-label="Close sidebar" id="closeSideBar"
+                class="hidden h-10 w-10 bg-gray-800 absolute right-0 mt-16 -mr-10 flex items-center shadow rounded-tr rounded-br justify-center cursor-pointer text-white"
+                onclick="sidebarHandler(false)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+
+            <!-- SIDEBAR MOBILE  -->
+            <div class=" h-screen bg-fuchsia-800">
+                <div class="h-16 w-full flex items-center">
+                    <div class="h-16 w-full flex items-center justify-center mt-6">
+                        <img src="img/Flor.jpg" alt="User Icon">
+                        <span>Flor</span>
+                    </div>
+                </div>
+                <ul class="mt-12">
+
+                    <a href="addAlbum.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                        <li
+                            class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
+                            <span class="text-sm ml-2">Add Album</span>
+                        </li>
+                    </a>
+
+
+
+                    <a href="tours.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                        <li
+                            class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
+                            <span class="text-sm ml-2">Tour dates</span>
+                        </li>
+                    </a>
+
+
+
+                    <a href="login.html"
+                        class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                        <li
+                            class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
+                            <span class="text-sm ml-2">Log out</span>
+                        </li>
+                    </a>
+
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Sidebar ends -->
+    <!-- Remove class [ h-64 ] when adding a card block -->
+    <div class="container py-10 px-6  sm:ml-64 w-auto ">
+        <!-- Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border -->
+
+        <img src="img/channels4_banner.jpg" alt="banner" class="banner">
+        <h1 class="text-center text-6xl my-4 mt-12">Hitomi Flor</h1>
+
+        <p>Florencia Acosta, más conocida como Hitomi Flor, es muy fanática de la cultura asiática. Mira anime desde
+            pequeña y escucha K-Pop desde hace varios años. También estudió chino mandarín y japonés. Participó en
+            varios concursos, los más importantes fueron: Concurso Latinoamericano de KPOP, Kpop World Festival
+            (Chogwon, Corea) y Nodojiman The World (Tokio, Japón). Al ganar el concurso latinoamericano de K-Pop se ganó
+            un viaje a Corea y la posibilidad de audicionar para cantar en el mundial de K-Pop. Desde este punto quedó
+            seleccionada entre los 10 mejores equipos del mundo, y luego, en el festival, salió 5ta. En cuanto al
+            Nodojiman, se hizo una audición mundial de la cual sólo elegían a 20 solistas, y los elegidos ganaban un
+            viaje a Japón para cantar en la televisión. Hitomi estuvo entre esos 20 artistas, cumpliendo uno de sus
+            sueños más importantes.
+
+        </p>
+
+        <h3 class="text-3xl my-4 text-center mt-14">Albums</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="bg-transparent rounded-lg  p-4 text-center">
+                <a href="album1.html">
+                    <img src="img/deNoche.jpeg" alt="Portada del Álbum" class="w-2/3 mx-auto object-cover rounded-md">
+                    <p class=" mt-2">De noche</p>
+                    <p>2020</p>
+                    <button class="mt-2 text-red-700 hover:text-rose-950">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </a>
+            </div>
+            <div class="bg-transparent  rounded-lg  p-4 text-center">
+                <a href="album1.html">
+                    <img src="img/anime.jpg" alt="Portada del Álbum" class="w-2/3 mx-auto object-cover rounded-md">
+                    <p class=" mt-2">Anime Covers</p>
+                    <p>2019</p>
+                    <button class="mt-2 text-red-700 hover:text-rose-950">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </a>
+            </div>
+            <div class="bg-transparent  rounded-lg  p-4 text-center">
+                <a href="album1.html">
+                    <img src="img/videogames.jpg" alt="Portada del Álbum"
+                        class="w-2/3 mx-auto  object-cover rounded-md">
+                    <p class=" mt-2">Videogames Covers</p>
+                    <p>2019</p>
+                    <button class="mt-2 text-red-700 hover:text-rose-950">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </a>
+            </div>
+            <div class="bg-transparent  rounded-lg  p-4 text-center">
+                <a href="album1.html">
+                    <img src="img/Rock-Pop.jpg" alt="Portada del Álbum" class="w-2/3 mx-auto  object-cover rounded-md">
+                    <p class="mt-2">Rock Pop covers</p>
+                    <p>2018</p>
+                    <button class="mt-2 text-red-700 hover:text-rose-950">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

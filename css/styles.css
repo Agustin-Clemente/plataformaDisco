@@ -1,0 +1,51 @@
+
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+body{
+    background-color:rgba(242, 143, 159, 0.192);
+    background-color: #be0fb895;
+    color: white;
+    font-family: "Roboto Serif", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+h1{
+    font-family: "MonteCarlo", cursive;
+}
+
+.rounded-lg.p-4.text-center:hover, form div.mb-4 input.mt-1.p-2.w-full.border.rounded-md:focus, form div.mb-4 textarea.mt-1.p-2.w-full.border.rounded-md:focus{
+    box-shadow: 0px 0px 10px cyan, 0px 0px 40px cyan
+}
+
+
+/* h3{
+    font-family: "Kalnia Glaze", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+} */
+
+img{
+    width: 48px;
+    border-radius: 50%;
+}
+
+.container.py-10.px-6 .banner{
+    width: auto;
+    border-radius: 10px;
+}
+
+.h-16.w-full.flex.items-center.justify-center.mt-6 span{
+    color: white;
+    margin-left: 12px;
+}
+
+svg{
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
+
+}
