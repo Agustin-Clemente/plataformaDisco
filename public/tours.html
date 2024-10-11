@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/3e96da98fd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tours.css">
 </head>
 
 <body>
@@ -149,19 +150,22 @@
             <div class="px-4  font-bold sm:font-normal">06/12/2024</div>
             <div class="px-4 ">Comic con Argentina</div>
             <div class="border-b border-white mb-14 lg:border-transparent lg:mb-0">
-                <a href="#" class="text-red-700  hover:text-rose-950">
+                <!-- <a href="#" class="text-red-700  hover:text-rose-950" onclick="getTickets ('disponible', 'Comic con Argentina')">
                     <i class="bi bi-ticket-perforated"></i> Comprar
-                </a>
+                </a> -->
+                <button class="text-red-700  hover:text-rose-950" value="Viernes" onclick="getTickets('Viernes')"><i class="bi bi-ticket-perforated"></i> Comprar</button>
             </div>
+            
 
 
 
             <div class="px-4  font-bold sm:font-normal">07/12/2024</div>
             <div class="px-4 ">Comic con Argentina</div>
             <div class="border-b border-white mb-14 lg:border-transparent lg:mb-0">
-                <a href="#" class="text-red-700 hover:text-rose-950">
+                <!-- <a href="#" class="text-red-700 hover:text-rose-950" onclick="getTickets ('disponible', 'Comic con Argentina')">
                     <i class="bi bi-ticket-perforated"></i> Comprar
-                </a>
+                </a> -->
+                <button class="text-red-700  hover:text-rose-950" value="Sabado" onclick="getTickets('Sabado')"><i class="bi bi-ticket-perforated"></i> Comprar</button>
             </div>
 
 
@@ -170,7 +174,7 @@
             <div class="px-4 font-bold sm:font-normal">08/12/2024</div>
             <div class="px-4 ">Comic con Argentina</div>
             <div class="border-b border-white mb-14 lg:border-transparent lg:mb-0">
-                <a href="#" class=" text-red-700 hover:text-rose-950">
+                <!-- <a href="#" class=" text-red-700 hover:text-rose-950" onclick="getTickets ('', 'Comic con Argentina')">
                     <?xml version="1.0" ?><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <style>
@@ -227,7 +231,63 @@
                         </g>
                     </svg>
 
-                </a>
+                </a> -->
+                <button class="text-red-700  hover:text-rose-950" value="Domingo" onclick="getTickets('Domingo')"><?xml version="1.0" ?><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #dbeffc;
+                            }
+
+                            .cls-2 {
+                                fill: #eaeaea;
+                            }
+
+                            .cls-2,
+                            .cls-3,
+                            .cls-4,
+                            .cls-5 {
+                                stroke: #4c241d;
+                                stroke-linecap: round;
+                                stroke-linejoin: round;
+                                stroke-width: 2px;
+                            }
+
+                            .cls-3 {
+                                fill: none;
+                            }
+
+                            .cls-4 {
+                                fill: #e66353;
+                            }
+
+                            .cls-5 {
+                                fill: #bf7e68;
+                            }
+                        </style>
+                    </defs>
+                    <g id="sold-out">
+                        <circle class="cls-1" cx="31.5" cy="26.5" r="20" />
+                        <rect class="cls-2" height="27" width="51" x="5" y="13" />
+                        <rect class="cls-3" height="6" rx="1.3178" width="4" x="34" y="18" />
+                        <rect class="cls-3" height="6" rx="1.3178" width="4" x="27" y="28" />
+                        <path class="cls-3"
+                            d="M38,28v4.6822A1.3178,1.3178,0,0,1,36.6822,34H35.3178A1.3178,1.3178,0,0,1,34,32.6822V28" />
+                        <polyline class="cls-3" points="31 18 27 18 27 21 31 21 31 24 27 24" />
+                        <circle class="cls-4" cx="15.5" cy="26.5" r="6.5" />
+                        <polyline class="cls-5" points="33 61 33 40 28 40 28 61" />
+                        <line class="cls-3" x1="18" x2="13" y1="24" y2="29" />
+                        <line class="cls-3" x1="13" x2="18" y1="24" y2="29" />
+                        <line class="cls-3" x1="42.9933" x2="40.0453" y1="5.1631" y2="8.1112" />
+                        <line class="cls-3" x1="40.0453" x2="42.9933" y1="5.1631" y2="8.1112" />
+                        <polyline class="cls-3" points="41 18 41 24 44 24" />
+                        <path class="cls-3"
+                            d="M47,18h2.7492A1.2508,1.2508,0,0,1,51,19.2508v3.4985A1.2508,1.2508,0,0,1,49.7492,24H47a0,0,0,0,1,0,0V18A0,0,0,0,1,47,18Z" />
+                        <line class="cls-3" x1="43" x2="43" y1="34" y2="28" />
+                        <line class="cls-3" x1="41" x2="45" y1="28" y2="28" />
+                    </g>
+                </svg>
+</button>
             </div>
         </div>
     </div>
@@ -335,6 +395,7 @@
 
     <script src="js/index.js"></script>
     <script src="js/tours.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
 
 </body>
 

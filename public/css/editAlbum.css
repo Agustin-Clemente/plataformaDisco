@@ -1,0 +1,12 @@
+
+
+    button:disabled{
+        margin: 24px auto;
+        background-color: grey;
+        color: white;
+        border-radius: 12px;
+        height: 48px;
+        width: 40%;
+
+
+    }

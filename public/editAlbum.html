@@ -28,17 +28,26 @@
                     <span>Flor</span>
                 </div>
                 <ul class="mt-12">
-                    <a href="addAlbum.html" class="flex items-center focus:outline-none ">
+
+                    <a href="index.html" class="flex items-center focus:outline-none">
                         <li class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
-                            <span class="text-sm ml-2">Agregar Album</span>
+                            <span class="text-sm ml-2">Inicio</span>
                         </li>
                     </a>
 
 
 
-                    <a href="tours.html" class="flex items-center focus:outline-none">
+                    <a href="editAlbum.html" class="flex items-center focus:outline-none">
                         <li class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
-                            <span class="text-sm ml-2">Tour </span>
+                            <span class="text-sm ml-2">Editar album</span>
+                        </li>
+                    </a>
+
+
+
+                    <a href="addSong.html" class="flex items-center focus:outline-none">
+                        <li class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
+                            <span class="text-sm ml-2">Agregar canciones</span>
                         </li>
                     </a>
 
@@ -49,6 +58,8 @@
                             <span class="text-sm ml-2">Salir</span>
                         </li>
                     </a>
+
+
                 </ul>
             </div>
         </div>
@@ -81,17 +92,25 @@
                 </div>
                 <ul class="mt-12">
 
-                    <a href="addAlbum.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                    <a href="index.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
                         <li class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
-                            <span class="text-sm ml-2">Agregar album</span>
+                            <span class="text-sm ml-2">Inicio</span>
                         </li>
                     </a>
 
 
 
-                    <a href="tours.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                    <a href="editAlbum.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
                         <li class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
-                            <span class="text-sm ml-2">Tour</span>
+                            <span class="text-sm ml-2">Editar album</span>
+                        </li>
+                    </a>
+
+
+
+                    <a href="addSong.html" class="flex items-center focus:outline-none focus:ring-2 focus:ring-white">
+                        <li class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
+                            <span class="text-sm ml-2">Agregar canciones</span>
                         </li>
                     </a>
 
@@ -109,76 +128,50 @@
 
         </div>
     </div>
+    <!-- Sidebar ends -->
 
-    <!-- MAIN  -->
+
+
+    <!-- MAIN -->
     <div class="container py-10 px-6  sm:ml-64 w-auto ">
 
         <img src="img/channels4_banner.jpg" alt="banner" class="banner">
-        <h1 class="text-center text-6xl my-4 mt-12">Hitomi Flor</h1>
 
-        <p>Florencia Acosta, más conocida como Hitomi Flor, es muy fanática de la cultura asiática. Mira anime desde
-            pequeña y escucha K-Pop desde hace varios años. También estudió chino mandarín y japonés. Participó en
-            varios concursos, los más importantes fueron: Concurso Latinoamericano de KPOP, Kpop World Festival
-            (Chogwon, Corea) y Nodojiman The World (Tokio, Japón). Al ganar el concurso latinoamericano de K-Pop se ganó
-            un viaje a Corea y la posibilidad de audicionar para cantar en el mundial de K-Pop. Desde este punto quedó
-            seleccionada entre los 10 mejores equipos del mundo, y luego, en el festival, salió 5ta. En cuanto al
-            Nodojiman, se hizo una audición mundial de la cual sólo elegían a 20 solistas, y los elegidos ganaban un
-            viaje a Japón para cantar en la televisión. Hitomi estuvo entre esos 20 artistas, cumpliendo uno de sus
-            sueños más importantes.
-        </p>
-
-        <h3 class="text-3xl my-4 text-center mt-14">Albums</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-            <div class="bg-transparent rounded-lg  p-4 text-center">
-                <a href="deNoche.html">
-                    <img src="img/deNoche.jpeg" alt="Portada del Álbum" class="w-2/3 mx-auto object-cover rounded-md">
-                    <p class=" mt-2">De noche</p>
-                    <p>2020</p>
-                    <button class="mt-2 text-red-700 hover:text-rose-950">
-                        <i class="bi bi-trash"></i> Eliminar
-                    </button>
-                </a>
+        <h3 class="text-3xl my-4 text-center mt-14 mb-8">Editar Album</h3>
+        <form class="text-center mx-auto md:w-3/4 " name="form">
+            <div class="mb-4">
+                <label for="title" class="block font-medium">Título</label>
+                <input type="text" id="title" name="title" class="mt-1 p-2 w-full border rounded-md text-[#be0fb895]">
             </div>
-            <div class="bg-transparent  rounded-lg  p-4 text-center">
-                <a href="animeCovers.html">
-                    <img src="img/anime.jpg" alt="Portada del Álbum" class="w-2/3 mx-auto object-cover rounded-md">
-                    <p class=" mt-2">Anime Covers</p>
-                    <p>2019</p>
-                    <button class="mt-2 text-red-700 hover:text-rose-950">
-                        <i class="bi bi-trash"></i> Eliminar
-                    </button>
-                </a>
+            <div class="mb-4">
+                <label for="lanzamiento" class="block font-medium">Año de lanzamiento</label>
+                <input type="number" id="lanzamiento" name="lanzamiento" class="mt-1 p-2 w-full border rounded-md text-[#be0fb895]"
+                    required>
             </div>
-            <div class="bg-transparent  rounded-lg  p-4 text-center">
-                <a href="gamesCovers.html">
-                    <img src="img/videogames.jpg" alt="Portada del Álbum"
-                        class="w-2/3 mx-auto  object-cover rounded-md">
-                    <p class=" mt-2">Videogames Covers</p>
-                    <p>2019</p>
-                    <button class="mt-2 text-red-700 hover:text-rose-950">
-                        <i class="bi bi-trash"></i> Eliminar
-                    </button>
-                </a>
+            <div class="mb-4">
+                <label for="description" class="block font-medium">Descripción</label>
+                <textarea id="description" name="description" rows="4"
+                    class="mt-1 p-2 w-full border rounded-md text-[#be0fb895]"></textarea>
             </div>
-            <div class="bg-transparent  rounded-lg  p-4 text-center">
-                <a href="rockCovers.html">
-                    <img src="img/Rock-Pop.jpg" alt="Portada del Álbum" class="w-2/3 mx-auto  object-cover rounded-md">
-                    <p class="mt-2">Rock Pop covers</p>
-                    <p>2018</p>
-                    <button class="mt-2 text-red-700 hover:text-rose-950">
-                        <i class="bi bi-trash"></i> Eliminar
-                    </button>
-                </a>
+            <div class="mb-4">
+                <label for="image" class="block font-medium">Agrega una imagen (URL)</label>
+                <input type="text" id="image" name="image" class="mt-1 p-2 w-full border rounded-md text-[#be0fb895]">
             </div>
-
-        </div>
+            <div class="flex justify-evenly">
+                <button type="submit" name="submit"
+                    class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-800">Editar</button>
+                <button type="button"
+                    class="px-4 py-2 bg-red-700 hover:bg-rose-950 text-white rounded-md">Cancelar</button>
+            </div>
+        </form>
+        
     </div>
 
 
 
 
     <script src="js/index.js"></script>
+    <script src="js/editAlbum.js"></script>
 </body>
 
 </html>
