@@ -1,4 +1,3 @@
-//Acá irán los modelos
 /* EJEMPLO DE UN MODELO
 const mongoose = require("mongoose")
 

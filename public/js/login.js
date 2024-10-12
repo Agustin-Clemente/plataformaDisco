@@ -23,9 +23,10 @@ const mensaje = document.createElement("p");
 mensaje.innerText = "La contraseña es demasiado corta";
 
 function validar(event) {
-    if (loginForm.elements.mail.value==="" || loginForm.elements.password.value === "") {
+    if (loginForm.elements.mail.value === "" || loginForm.elements.password.value === "") {
         event.preventDefault()
-        swal("Todos los campos deben estar completos")}
+        swal("Todos los campos deben estar completos")
+    }
 }
 
 function aviso() {
@@ -33,9 +34,9 @@ function aviso() {
     mensajeContainer.innerHTML = "";
     if (loginForm.elements.password.value.length < 6) {
         mensajeContainer.appendChild(mensaje);
-        loginForm.elements.submit.disabled=true
-}else{
-    loginForm.elements.submit.disabled=false
+        loginForm.elements.submit.disabled = true
+    } else {
+        loginForm.elements.submit.disabled = false
     }
 }
 
@@ -43,6 +44,6 @@ function aviso() {
 
 
 
-loginForm.elements.submit.onclick= validar
-loginForm.elements.password.oninput= aviso
+loginForm.elements.submit.onclick = validar
+loginForm.elements.password.oninput = aviso
 
