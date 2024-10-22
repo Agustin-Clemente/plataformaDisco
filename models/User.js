@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const ObjectId = mongoose.Schema.Types.ObjectId;
 const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
 const userModel = new mongoose.Schema({ //inicializo schema
@@ -13,7 +14,7 @@ const userModel = new mongoose.Schema({ //inicializo schema
     }
   },
   password: { type: String, required: [true, "Campo requerido"] },
-  favoritos: [{ id: { type: Number } }]
+  favoritos: [{ id: { type: ObjectId } }]
 })
 
 module.exports = mongoose.model("userModel", userModel)

@@ -1,5 +1,6 @@
 const express = require('express')
 const usuariosRouter = express.Router()
+const Usuarios = require('../models/User.js')
 
 //PROBANDO USUARIOS
 const usuarios = [
@@ -69,13 +70,53 @@ usuariosRouter.get('/', function (req, res) {
     res.status(200).send(usuarios);
   }); 
 
-  usuariosRouter.get("/:id", (req, res)=>{
+
+  // Una ruta que reciba un id por params y retorne la data del usuario nuevamente, excluyendo la contraseña.
+  usuariosRouter.get("/:id", async (req, res)=>{
    
     const id = req.params.id
 
-    const usuarioBuscado = usuarios.filter((usuario)=>usuario.id === id)
+    /* const usuarioBuscado = usuarios.filter((usuario)=>usuario.id === id)
 
-    res.status(200).send(usuarioBuscado)
+    res.status(200).send(usuarioBuscado) */
+
+    try {
+      const result = await Usuarios.findById(id).select('-password')
+      res.status(200).send(result)
+    } catch (error) {
+      res.status(404).send("No data")
+    }
 })
+
+// POST - Una ruta para crear un usuario.
+usuariosRouter.post('/', async (req, res)=>{
+  try {
+    await Usuarios.create(req.body)
+    res.status(201).send("Usuario creado correctamente")
+  } catch (error) {
+    console.log(error)
+    res.status(500).send("Error al crear usuario")
+  }
+})
+
+// Una ruta para editar los datos de un usuario.
+usuariosRouter.put('/:id', async (req, res)=>{
+  try {
+      const id = req.params.id
+      const newInfo = req.body
+
+      console.log("NEW INFO", newInfo)
+
+      //const arr = [ { nombre: 'Agus'} ]
+
+      await Usuarios.findByIdAndUpdate(id, newInfo, {new: true})
+
+    res.status(200).send("Elemento actualizado correctamente")
+  } catch (error) {
+    console.log(error)
+    res.status(500).send("Hubo un error en la actualizacion")
+  }
+})
+
 
  module.exports = usuariosRouter

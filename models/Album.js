@@ -12,6 +12,7 @@ const albumModel = new mongoose.Schema({ //inicializo schema
     portada: { type: String, required: [true, "Campo requerido"] },
     canciones: [{
         titulo: { type: String, required: [true, "Campo requerido"] },
+        link: { type: String },
         duracion: { type: Number, required: [true, "Campo requerido"] }
     }]
 })
