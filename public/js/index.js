@@ -47,9 +47,6 @@ function agregarFav() {
     div.classList.add("favorite");
     // }
   });
-}
-
-window.onload = () => {
   const stars = document.querySelectorAll(".fa-star");
   stars.forEach(star => {
     star.addEventListener("click", function () {
@@ -59,5 +56,54 @@ window.onload = () => {
   });
 }
 
+/* window.onload = () => {
+  const stars = document.querySelectorAll(".fa-star");
+  stars.forEach(star => {
+    star.addEventListener("click", function () {
+      //star.classList.toggle("fa-regular");
+      star.classList.toggle("fa-solid");
+    });
+  });
+} */
 
-agregarFav()
+const getAlbums =  async () => {
+  try{
+  const response = await axios.get('/albums')
+  response.data.map((album)=> {
+    renderAlbums(album)})
+    agregarFav()
+  }
+  catch(error){
+    console.log(error)
+  }
+
+}
+
+
+// AXIOS - 1. GET - Mostrar Albums
+const redirect = (id) => { window.location.href = `./album.html?album=${id}`}
+
+const renderAlbums = (album) => {
+  const contenedor = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3.gap-4');
+
+  const card = `
+    <div class="bg-transparent rounded-lg p-4 text-center posicionamiento">
+        <img src="${album.portada}"  onclick="redirect('${album._id}')" alt="Portada del Álbum" class="w-2/3 mx-auto object-cover rounded-md cursor-pointer">
+        <p class="mt-2">${album.titulo}</p>
+        <p>${album.anio}</p>
+      </a>
+      <button class="mt-2 text-red-700 hover:text-rose-950">
+        <i class="bi bi-trash"></i> Eliminar
+      </button>
+    </div>
+  `;
+
+  //contenedor.insertAdjacentHTML('beforeend', card);
+  contenedor.innerHTML += card
+  //agregarFav()
+
+};
+
+//agregarFav()
+getAlbums()
+
