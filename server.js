@@ -10,9 +10,11 @@ const url = "mongodb+srv://aclemente:dbQEP5IWo1pmdrhv@curso-intro.sf0px.mongodb.
 const albums = require("./models/Album")
 const songs = require("./models/Song") */
 const path = require("path");
+const cookieParser = require('cookie-parser')
 
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public"))); //Express busca en la carpeta public, en la raíz del proyecto, los archivos estáticos solicitados por el cliente.
 
 app.use("/", routes) //cada vez que se hace un pedido a / que vaya a routes
