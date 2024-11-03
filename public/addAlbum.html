@@ -137,7 +137,7 @@
 
         <h3 class="text-3xl my-4 text-center mt-14 mb-8">Agregar album</h3>
 
-        <form class="text-center mx-auto md:w-3/4 ">
+        <form class="text-center mx-auto md:w-3/4 " name="form">
             <div class="mb-4">
                 <label for="title" class="block font-medium">Título</label>
                 <input type="text" id="title" name="title" class="mt-1 p-2 w-full border rounded-md text-[#be0fb895]" required>
@@ -158,10 +158,10 @@
                     class="mt-1 p-2 w-full border rounded-md text-[#be0fb895]" required>
             </div>
             <div class="flex justify-evenly">
-                <button type="submit"
+                <button type="submit" name="submit"
                     class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-800">Agregar</button>
                 <button type="button"
-                    class="px-4 py-2 bg-red-700 hover:bg-rose-950 text-white rounded-md">Cancelar</button>
+                    class="px-4 py-2 bg-red-700 hover:bg-rose-950 text-white rounded-md" id="cancelar">Cancelar</button>
             </div>
         </form>
 
@@ -170,7 +170,10 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/addAlbum.js"></script>
+    <!-- <script src="js/index.js"></script> -->
 
 </body>
 

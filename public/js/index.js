@@ -1,15 +1,15 @@
-
+/* 
 var sideBar = document.getElementById("mobile-nav");
 var openSidebar = document.getElementById("openSideBar");
 var closeSidebar = document.getElementById("closeSideBar");
-sideBar.style.transform = "translateX(-260px)";
+sideBar.style.transform = "translateX(-260px)"; */
 
 
 
 
 //const favoritos = ["deNoche"]
 
-function sidebarHandler(flag) {
+/* function sidebarHandler(flag) {
   if (flag) {
     sideBar.style.transform = "translateX(0px)";
     openSidebar.classList.add("hidden");
@@ -19,7 +19,7 @@ function sidebarHandler(flag) {
     closeSidebar.classList.add("hidden");
     openSidebar.classList.remove("hidden");
   }
-}
+} */
 
 //12 - OBJETOS
 /*  function agregarFav(favoritos) {
@@ -72,6 +72,7 @@ const getAlbums =  async () => {
   response.data.map((album)=> {
     renderAlbums(album)})
     agregarFav()
+    agregarEventoDelete()
   }
   catch(error){
     console.log(error)
@@ -92,7 +93,7 @@ const renderAlbums = (album) => {
         <p class="mt-2">${album.titulo}</p>
         <p>${album.anio}</p>
       </a>
-      <button class="mt-2 text-red-700 hover:text-rose-950">
+      <button class="mt-2 text-red-700 hover:text-rose-950" id=${album._id}>
         <i class="bi bi-trash"></i> Eliminar
       </button>
     </div>
@@ -101,9 +102,54 @@ const renderAlbums = (album) => {
   //contenedor.insertAdjacentHTML('beforeend', card);
   contenedor.innerHTML += card
   //agregarFav()
-
+  
 };
 
 //agregarFav()
 getAlbums()
+
+// 20- Más requerimientos DELETE - Eliminar Un Album
+const deleteAlbum = async (id) => {
+  swal({
+    title: "¿Estás seguro/a?",
+    text: "Esta acción no se puede deshacer.",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then(async (confirmed) => {
+    if (confirmed) { 
+try {
+  const response = await axios.get(`/albums/${id}`)
+  const titulo = response.data[0].titulo;
+await axios.delete(`/albums/${id}`)
+swal({
+  title: `Borraste ${titulo} de la lista`,
+  text: 'Eliminaste el album!',
+  icon: 'success',
+  confirmButtonText: 'Ok'
+}).then(() => {
+  window.location.href = `./`;
+});
+} catch (error) {
+console.log(error)
+swal({
+  icon: "error",
+  title: "Oops...",
+  text: `No se pudo eliminar el album: ${error.response.data}`
+});
+}
+}})
+}
+
+function agregarEventoDelete() {
+  const botonesEliminar = document.querySelectorAll('.mt-2.text-red-700.hover\\:text-rose-950');
+  botonesEliminar.forEach(boton => {
+    boton.addEventListener('click', function() {
+      deleteAlbum(this.id);
+  })
+  });
+}
+
+
+
 
