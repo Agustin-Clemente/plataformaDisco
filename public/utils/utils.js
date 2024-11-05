@@ -4,8 +4,9 @@ const onLoad = async () => {
     const response = await axios.get('/users/me');
     console.log(response)
     const user = `${response.data.nombre} ${response.data.apellido}`;
-    const userName = document.getElementById("username");
-    userName.textContent = user;
+    const userName = document.querySelectorAll("#username");
+    userName.forEach(username => {username.textContent = user;})
+    
   } catch (error) {
     console.error("Error ruta me:", error.message);
     window.location.href = "./login.html";

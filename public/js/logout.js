@@ -9,8 +9,11 @@ const logoutUser = async () => {
 };
 
 
-const logoutButton = document.getElementById("logout")
-logoutButton.addEventListener('click', () => logoutUser())
+const logoutButton = document.querySelectorAll("#logout")
+
+logoutButton.forEach(boton => {
+  boton.addEventListener('click', () => logoutUser())
+})
 
 
 

@@ -2,7 +2,7 @@ import { onLoad } from '../utils/utils.js'
 
 
 let span = document.getElementById("welcome");
-let botones = document.querySelectorAll("button")
+let botones = document.querySelectorAll(".boton")
 
 
 alert("Hola! Te damos la bienvenida")
