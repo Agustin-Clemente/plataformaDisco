@@ -4,10 +4,8 @@ const app = express();
 const routes = require("./routes/index")
 const usersRoutes = require("./routes/users")
 const albumsRoutes = require("./routes/albums")
-//const port = 5000
 
 const mongoose = require("mongoose")
-//const url = "mongodb+srv://aclemente:dbQEP5IWo1pmdrhv@curso-intro.sf0px.mongodb.net/?retryWrites=true&w=majority&appName=Curso-Intro";
 /* const userModel = require("./models/User")
 const albums = require("./models/Album")
 const songs = require("./models/Song") */
@@ -20,7 +18,7 @@ dotenv.config()
 const port = process.env.PORT
 const password = process.env.PASSWORD
 const url = `mongodb+srv://aclemente:${password}@curso-intro.sf0px.mongodb.net/?retryWrites=true&w=majority&appName=Curso-Intro`;
- 
+
 
 app.use(express.json());
 app.use(cookieParser());
@@ -33,10 +31,7 @@ app.use("/albums", albumsRoutes)
 const connect = async () => {
     try {
         await mongoose.connect(url);
-        /* app.listen(5000, () => {
-            console.log('Server listening on port 5000 and DB connected')
-        }) */
-       app.listen(port, () => {
+        app.listen(port, () => {
             console.log(`Server listening on port ${port} and DB connected`)
         })
 

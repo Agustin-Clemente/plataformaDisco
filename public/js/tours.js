@@ -9,11 +9,6 @@ alert("Hola! Te damos la bienvenida")
 let nombre = prompt("¿Cuál es tu nombre?").toUpperCase();
 let edad = prompt("¿Cuál es tu edad?");
 
-//window.alert("Hola " + nombre + " de " + edad + " años, te interesaría adquirir tickects ? 🎟️");
-/* while (nombre=="") {
-    alert("Debes ingresar tu nombre");
-    nombre = prompt("¿Cuál es tu nombre?");
-} */
 
 while (nombre.length < 3) {
   nombre = prompt("Demasiado corto, dinos, cuál es realmente tu nombre?").toUpperCase();
@@ -73,41 +68,9 @@ const getTickets = (fecha) => {
       disableSoldOutButtons(fecha);
     }
   }
-
-  /*   if (fecha === "Viernes" && tickets[fecha] > 0) {
-      tickets[fecha] = tickets[fecha] - 1;
-      swal("Compraste", "Ticket para el " + fecha + " adquirido", "success");
-    }
-    if (fecha === "Sabado" && tickets[fecha] > 0) {
-      tickets[fecha] = tickets[fecha] - 1;
-      swal("Compraste", "Ticket para el " + fecha + " adquirido", "success");
-    }
-    if (fecha === "Domingo" && tickets[fecha] > 0) {
-      tickets[fecha] = tickets[fecha] - 1;
-      swal("Compraste", "Ticket para el " + fecha + " adquirido", "success");
-    } */
 };
 
 function disableSoldOutButtons(fecha) {
-  /*  if (fecha === "Viernes") {
-     botones[2].classList.add("text-gray-500")
-     botones[2].classList.remove("hover:text-rose-950")
-     botones[2].disabled=true
-     botones[2].innerText= "SOLD OUT"
-   }
-   if (fecha === "Sabado") {
-     botones[3].classList.add("text-gray-500")
-     botones[3].classList.remove("hover:text-rose-950")
-     botones[3].disabled=true
-     botones[3].innerText= "SOLD OUT"
-
-   }
-   if (fecha === "Domingo") {
-     botones[4].classList.add("text-gray-500")
-     botones[4].classList.remove("hover:text-rose-950")
-     botones[4].disabled=true
-     botones[4].innerText= "SOLD OUT"
-   } */
   botones.forEach(boton => {
     if (boton.value == fecha) {
       boton.classList.add("text-gray-500")
@@ -117,5 +80,5 @@ function disableSoldOutButtons(fecha) {
   });
 }
 
-// window.onload = onLoad;
+
 window.getTickets = getTickets;

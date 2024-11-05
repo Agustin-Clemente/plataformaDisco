@@ -1,9 +1,5 @@
 import { onLoad } from '../utils/utils.js'
 
-var sideBar = document.getElementById("mobile-nav");
-var openSidebar = document.getElementById("openSideBar");
-var closeSidebar = document.getElementById("closeSideBar");
-sideBar.style.transform = "translateX(-260px)";
 const titulo = document.getElementById("titulo");
 const descripcion = document.getElementById("descripcion");
 const encabezado = document.getElementById("encabezado");
@@ -11,19 +7,6 @@ const params = new URLSearchParams(window.location.search);
 const albumId = params.get('album');
 const buttonEditAlbum = document.querySelectorAll('.buttonEditAlbum');
 const buttonAddSong = document.querySelectorAll('.buttonAddSong');
-
-
-function sidebarHandler(flag) {
-  if (flag) {
-    sideBar.style.transform = "translateX(0px)";
-    openSidebar.classList.add("hidden");
-    closeSidebar.classList.remove("hidden");
-  } else {
-    sideBar.style.transform = "translateX(-260px)";
-    closeSidebar.classList.add("hidden");
-    openSidebar.classList.remove("hidden");
-  }
-}
 
 
 
@@ -69,32 +52,6 @@ function renderAlbum(album) {
   titulo.innerText = album.titulo;
   descripcion.innerText = album.descripcion;
   encabezado.innerText = `Lista de temas - ${album.titulo}`;
-  /* 
-    const tableBody = document.querySelector('tbody');
-    let numeroCancion = 1
-    for (let i = 0; i < album.canciones.length; i++) {
-      const track = album.canciones[i];
-      
-      const contenidoTabla = `
-        <tr class="border-b">
-          <td class="px-4 py-4">${numeroCancion++}</td>
-          <td class="px-4 py-4">${track.titulo}</td>
-          <td class="px-4 py-4">${track.duracion}</td>
-          <td class="px-4 py-4">
-            <a href="${track.link}" target="_blank" class="text-violet-900 hover:text-cyan-400">
-              <i class="bi bi-play-circle"></i> Escuchar
-            </a>
-          </td>
-          <td>
-            <a href="#" class="ml-2 text-red-700 hover:text-rose-950">
-              <i class="bi bi-trash"></i> Eliminar
-            </a>
-          </td>
-        </tr>
-      `;
-    
-      tableBody.insertAdjacentHTML('beforeend', contenidoTabla);
-    } */
 
   if (album.canciones.length) {
     album.canciones.map((cancion, index) => {
@@ -102,9 +59,9 @@ function renderAlbum(album) {
     })
     const botonesEliminar = document.querySelectorAll('.ml-2.text-red-700.hover\\:text-rose-950.cursor-pointer');
     botonesEliminar.forEach(boton => {
-      boton.addEventListener('click', function() {
+      boton.addEventListener('click', function () {
         deleteSong(this.id);
-    })
+      })
     });
 
   }
@@ -116,9 +73,6 @@ function renderAlbum(album) {
 // axios 2. renderSongs
 function renderSong(cancion, index) {
   const tableBody = document.querySelector('tbody');
-  //let numeroCancion = 1
-  /* for (let i = 0; i < album.canciones.length; i++) {
-    const track = album.canciones[i]; */
 
   const contenidoTabla = `
       <tr class="border-b">
@@ -139,7 +93,6 @@ function renderSong(cancion, index) {
     `;
 
   tableBody.insertAdjacentHTML('beforeend', contenidoTabla);
-  //}
 }
 
 
@@ -159,39 +112,35 @@ buttonEditAlbum.forEach(button => {
 
 
 // 20- Más requerimientos 2. Eliminar canciones
-
-
-
-
-
 const deleteSong = async (id) => {
-      swal({
-        title: "¿Estás seguro?",
-        text: "Esta acción no se puede deshacer.",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      }).then(async (confirmed) => {
-        if (confirmed) { 
-    try {
-    await axios.delete(`/albums/${albumId}/songs/${id}`)
-    swal({
-      title: 'Canción eliminada!',
-      text: 'Eliminaste la canción!',
-      icon: 'success',
-      confirmButtonText: 'Ok'
-    }).then(() => {
-      window.location.href = `./album.html?album=${albumId}`;
-    });
-  } catch (error) {
-    console.log(error)
-    swal({
-      icon: "error",
-      title: "Oops...",
-      text: `No se pudo eliminar la canción: ${error.response.data}`
-    });
-  }
-}})
+  swal({
+    title: "¿Estás seguro?",
+    text: "Esta acción no se puede deshacer.",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then(async (confirmed) => {
+    if (confirmed) {
+      try {
+        await axios.delete(`/albums/${albumId}/songs/${id}`)
+        swal({
+          title: 'Canción eliminada!',
+          text: 'Eliminaste la canción!',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        }).then(() => {
+          window.location.href = `./album.html?album=${albumId}`;
+        });
+      } catch (error) {
+        console.log(error)
+        swal({
+          icon: "error",
+          title: "Oops...",
+          text: `No se pudo eliminar la canción: ${error.response.data}`
+        });
+      }
+    }
+  })
 }
 
 window.onload = onLoad;

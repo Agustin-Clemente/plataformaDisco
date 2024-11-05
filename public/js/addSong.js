@@ -29,14 +29,14 @@ addForm.elements.link.oninput = validar
 let album;
 let newSong = {}
 
-const getAlbum = async () =>{
-  try{
-   const {data} = await axios.get(`/albums/${albumId}`)
-   album = data[0];
-  }
-  catch(error){
-  console.log(error)
-  }
+const getAlbum = async () => {
+    try {
+        const { data } = await axios.get(`/albums/${albumId}`)
+        album = data[0];
+    }
+    catch (error) {
+        console.log(error)
+    }
 }
 getAlbum()
 
@@ -48,12 +48,12 @@ function getInputValues() {
     }
 }
 
-const addSong  = async (e) =>{
+const addSong = async (e) => {
     e.preventDefault()
     getInputValues()
     //album.canciones.push(newSong)
 
-    try{
+    try {
         await axios.post(`/albums/${albumId}`, newSong)
         swal({
             title: 'Canción agregada!',
@@ -62,19 +62,19 @@ const addSong  = async (e) =>{
             confirmButtonText: 'Ok'
         }).then(() => {
             window.location.href = `./album.html?album=${albumId}`;
-          });
+        });
     }
-    catch(error){
-    console.log(error)
-    swal({
-        icon: "error",
-        title: "Oops...",
-        text: `No se pudo agregar la canción: ${error.response.data.message}`
-      });
+    catch (error) {
+        console.log(error)
+        swal({
+            icon: "error",
+            title: "Oops...",
+            text: `No se pudo agregar la canción: ${error.response.data.message}`
+        });
     }
-  }
+}
 
-  addButton.addEventListener("click", addSong)
+addButton.addEventListener("click", addSong)
 cancelButton.addEventListener("click", () => {
     window.location.href = `./album.html?album=${albumId}`;
 });

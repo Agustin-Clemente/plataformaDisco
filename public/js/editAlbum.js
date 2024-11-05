@@ -69,7 +69,7 @@ const editAlbum = async (e) => {
             confirmButtonText: 'Ok'
         }).then(() => {
             window.location.href = `./album.html?album=${albumId}`;
-          });
+        });
     } catch (error) {
         console.log(error)
     }

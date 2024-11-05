@@ -50,7 +50,7 @@ const addAlbum = async (e) => {
             confirmButtonText: 'Ok'
         }).then(() => {
             window.location.href = `./`;
-          });
+        });
     } catch (error) {
         console.log(error)
     }

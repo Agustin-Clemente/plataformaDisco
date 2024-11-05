@@ -46,38 +46,38 @@ loginForm.elements.password.oninput = aviso
 
 // BONUS - Login 1. Front-end
 function getInputValues() {
-  const user = {
-      "email": loginForm.elements['mail'].value,
-      "password": loginForm.elements['password'].value
-  }
+    const user = {
+        "email": loginForm.elements['mail'].value,
+        "password": loginForm.elements['password'].value
+    }
 
-  return user
+    return user
 }
 
 const loginUser = async (e) => {
     e.preventDefault()
     objectToSend = getInputValues()
-    try{
-     await axios.post(`http://localhost:5000/users/login`,objectToSend)
-     swal({
-      title: 'Ingreso correcto!',
-      text: "",
-      icon: 'success',
-      confirmButtonText: 'Ok'
-    }).then(()=> {
-        window.location.href= "./"
-    })
+    try {
+        await axios.post(`http://localhost:5000/users/login`, objectToSend)
+        swal({
+            title: 'Ingreso correcto!',
+            text: "",
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        }).then(() => {
+            window.location.href = "./"
+        })
     }
-    catch(error){
-      swal({
-        icon: "error",
-        title: "Oops...",
-        text: `No pudo ingresar: ${error.response.data.message}` 
-      })
+    catch (error) {
+        swal({
+            icon: "error",
+            title: "Oops...",
+            text: `No pudo ingresar: ${error.response.data.message}`
+        })
     }
-  }
+}
 
 
 const loginButton = document.querySelector('input[type="submit"]')
-loginButton.addEventListener('click', (e)=> loginUser(e))
+loginButton.addEventListener('click', (e) => loginUser(e))
 

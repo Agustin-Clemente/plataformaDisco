@@ -67,32 +67,28 @@ const usuarios = [
     "telefonos": ["555-1111", "555-2222"]
   }
 ];
-
+// No la utilizo, solo de prueba
 usuariosRouter.get('/', function (req, res) {
-    res.status(200).send(usuarios);
-  }); 
+  res.status(200).send(usuarios);
+});
 
 
-  // Una ruta que reciba un id por params y retorne la data del usuario nuevamente, excluyendo la contraseña.
-  //usuariosRouter.get("/:id", async (req, res)=>{
-  usuariosRouter.get("/user/:id", async (req, res)=>{
-   
-    const id = req.params.id
+// Una ruta que reciba un id por params y retorne la data del usuario nuevamente, excluyendo la contraseña.
+//usuariosRouter.get("/:id", async (req, res)=>{
+usuariosRouter.get("/user/:id", async (req, res) => {
 
-    /* const usuarioBuscado = usuarios.filter((usuario)=>usuario.id === id)
+  const id = req.params.id
 
-    res.status(200).send(usuarioBuscado) */
-
-    try {
-      const result = await Usuarios.findById(id).select('-password')
-      res.status(200).send(result)
-    } catch (error) {
-      res.status(404).send("No data")
-    }
+  try {
+    const result = await Usuarios.findById(id).select('-password')
+    res.status(200).send(result)
+  } catch (error) {
+    res.status(404).send("No data")
+  }
 })
 
 // POST - Una ruta para crear un usuario.
-usuariosRouter.post('/', async (req, res)=>{
+usuariosRouter.post('/', async (req, res) => {
 
   const nombre = req.body.nombre
   const apellido = req.body.apellido
@@ -113,16 +109,14 @@ usuariosRouter.post('/', async (req, res)=>{
 })
 
 // Una ruta para editar los datos de un usuario.
-usuariosRouter.put('/:id', async (req, res)=>{
+usuariosRouter.put('/:id', async (req, res) => {
   try {
-      const id = req.params.id
-      const newInfo = req.body
+    const id = req.params.id
+    const newInfo = req.body
 
-      console.log("NEW INFO", newInfo)
+    console.log("NEW INFO", newInfo)
 
-      //const arr = [ { nombre: 'Agus'} ]
-
-      await Usuarios.findByIdAndUpdate(id, newInfo, {new: true})
+    await Usuarios.findByIdAndUpdate(id, newInfo, { new: true })
 
     res.status(200).send("Elemento actualizado correctamente")
   } catch (error) {
@@ -137,57 +131,57 @@ usuariosRouter.put('/:id', async (req, res)=>{
 const saltRounds = 10
 
 const hashPassword = async (password) => {
-  const hash = await bcrypt.hash(password,saltRounds)
+  const hash = await bcrypt.hash(password, saltRounds)
   return hash
 }
 
 // BONUS - Login 1. Back-end
-usuariosRouter.post('/login', async (req,res,next)=>{
-  try{
-      const {password,email,nombre, apellido, _id} = await Usuarios.findOne({"email":req.body.email})
-      const match = await bcrypt.compare(req.body.password, password);
-      const payload = {email, nombre, apellido, id:_id}
-      if(match){
-        const secret = "hola"
-        const token = jwt.sign(payload, secret, { expiresIn: '24h' })
-        res.cookie('token',token)
-        res.status(200).send(payload)
-      }
-     else{
-      res.status(401).send({message:'Wrong email or password'})
-     }
+usuariosRouter.post('/login', async (req, res, next) => {
+  try {
+    const { password, email, nombre, apellido, _id } = await Usuarios.findOne({ "email": req.body.email })
+    const match = await bcrypt.compare(req.body.password, password);
+    const payload = { email, nombre, apellido, id: _id }
+    if (match) {
+      const secret = "hola"
+      const token = jwt.sign(payload, secret, { expiresIn: '24h' })
+      res.cookie('token', token)
+      res.status(200).send(payload)
+    }
+    else {
+      res.status(401).send({ message: 'Wrong email or password' })
+    }
   }
-  catch(error){
-    res.status(401).send({message:'User does not exist'})
+  catch (error) {
+    res.status(401).send({ message: 'User does not exist' })
   }
 })
 
 // BONUS - Logout 1. Back-end
-usuariosRouter.post('/logout', async (req,res)=>{
-    try {
-      res.clearCookie('token'); 
-      res.status(204).send();
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al cerrar sesión");
-    }
-  });
+usuariosRouter.post('/logout', async (req, res) => {
+  try {
+    res.clearCookie('token');
+    res.status(204).send();
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error al cerrar sesión");
+  }
+});
 
 // BONUS - Acceso Restringido - 1. Ruta /me
 usuariosRouter.get('/me', (req, res) => {
-  try{
+  try {
     const token = req.cookies.token;
     //console.log(token)
     const secret = "hola"
-    const  payload = jwt.verify(token, secret);
+    const payload = jwt.verify(token, secret);
     res.status(200).send(payload);
     //console.log(payload)
   }
-  catch(error){
+  catch (error) {
     res.status(401).send(error)
   }
 });
 
 
 
- module.exports = usuariosRouter
+module.exports = usuariosRouter
