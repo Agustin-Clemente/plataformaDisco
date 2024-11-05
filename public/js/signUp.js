@@ -46,9 +46,9 @@ const registerButton = document.querySelector('input[type="submit"]')
     // Validate password
     const passwordInput = registerForm.elements.password;
     const passwordError = document.getElementById('passwordError');
-    if (passwordInput.value === '') {
+    if (passwordInput.value.length < 6) {
       passwordInput.classList.add('invalid');
-      passwordError.textContent = 'Campo requerido.';
+      passwordError.textContent = 'Mínimo 5 caracteres';
       isValid = false;
     } else {
       passwordInput.classList.remove('invalid');

@@ -1,3 +1,6 @@
+import { onLoad } from '../utils/utils.js'
+
+
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get('album');
 const editButton = document.querySelector('button[type="submit"]')
@@ -28,7 +31,7 @@ const completarForm = async () => {
 
     try {
         const response = await axios.get(`/albums/${albumId}`)
-        albumToUse = response.data[0];
+        const albumToUse = response.data[0];
         editForm.elements.title.value = albumToUse.titulo
         editForm.elements.lanzamiento.value = albumToUse.anio
         editForm.elements.description.value = albumToUse.descripcion
@@ -56,7 +59,7 @@ function getInputValues() {
 
 const editAlbum = async (e) => {
     e.preventDefault()
-    objectToSend = getInputValues()
+    const objectToSend = getInputValues()
     try {
         await axios.put(`/albums/${albumId}`, objectToSend)
         swal({
@@ -80,3 +83,5 @@ editButton.addEventListener("click", editAlbum)
 cancelButton.addEventListener("click", () => {
     window.location.href = `./album.html?album=${albumId}`;
 });
+
+window.onload = onLoad;

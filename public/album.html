@@ -25,7 +25,7 @@
             <div>
                 <div class="h-16 w-full flex items-center justify-center mt-6">
                     <img src="img/Flor.jpg" alt="User Icon">
-                    <span>Flor</span>
+                    <span id="username">Flor</span>
                 </div>
                 <ul class="mt-12">
 
@@ -53,7 +53,7 @@
 
 
 
-                    <a href="login.html" class="flex items-center focus:outline-none">
+                    <a class="flex items-center focus:outline-none" id="logout">
                         <li class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
                             <span class="text-sm ml-2">Salir</span>
                         </li>
@@ -87,7 +87,7 @@
                 <div class="h-16 w-full flex items-center">
                     <div class="h-16 w-full flex items-center justify-center mt-6">
                         <img src="img/Flor.jpg" alt="User Icon">
-                        <span>Flor</span>
+                        <span id="username">Flor</span>
                     </div>
                 </div>
                 <ul class="mt-12">
@@ -114,7 +114,7 @@
 
 
 
-                    <a href="login.html" class="flex items-center focus:outline-none ">
+                    <a class="flex items-center focus:outline-none " id="logout">
                         <li class="flex w-full justify-center cursor-pointer items-center mb-6 hover:bg-fuchsia-500 h-14">
                             <span class="text-sm ml-2">Salir</span>
                         </li>
@@ -137,7 +137,7 @@
         <p id="descripcion"></p>
 
         <div class=" mx-auto overflow-x-auto">
-            <h2 class="text-4xl font-semibold mb-4 text-center mt-12" id="encabezado">Lista de temas - De Noche</h2>
+            <h2 class="text-4xl font-semibold mb-4 text-center mt-12" id="encabezado"></h2>
             <table class="w-full  rounded-lg overflow-hidden">
                 <tbody class="text-center">
                     <!-- <tr class="border-b">
@@ -281,7 +281,11 @@
     <script src="js/sidebar.js"></script>
 
     <!-- <script src="js/index.js"></script> -->
-    <script src="js/album.js"></script>
+     <!-- <script src="js/album.js"></script>  -->
+    <script src="js/album.js" type="module"></script>
+    <script src="js/logout.js"></script>
+
+
 </body>
 
 </html>

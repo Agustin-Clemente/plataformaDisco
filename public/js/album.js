@@ -1,3 +1,4 @@
+import { onLoad } from '../utils/utils.js'
 
 var sideBar = document.getElementById("mobile-nav");
 var openSidebar = document.getElementById("openSideBar");
@@ -10,7 +11,6 @@ const params = new URLSearchParams(window.location.search);
 const albumId = params.get('album');
 const buttonEditAlbum = document.querySelectorAll('.buttonEditAlbum');
 const buttonAddSong = document.querySelectorAll('.buttonAddSong');
-
 
 
 function sidebarHandler(flag) {
@@ -30,7 +30,8 @@ function sidebarHandler(flag) {
 const getAlbum = async () => {
   try {
     const response = await axios.get(`/albums/${albumId}`)
-    albumToUse = response.data[0];
+    console.log(response.data)
+    const albumToUse = response.data[0];
     renderAlbum(albumToUse);
   }
   catch (error) {
@@ -56,7 +57,7 @@ const getAlbum = async () => {
         confirmButtonText: 'Ok'
       });
     }
-    window.location.href = './index.html'
+    //window.location.href = './index.html'
   }
 }
 
@@ -141,7 +142,7 @@ function renderSong(cancion, index) {
   //}
 }
 
-getAlbum()
+
 
 buttonAddSong.forEach(button => {
   button.addEventListener('click', () => {
@@ -192,3 +193,6 @@ const deleteSong = async (id) => {
   }
 }})
 }
+
+window.onload = onLoad;
+getAlbum()

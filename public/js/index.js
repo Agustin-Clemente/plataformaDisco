@@ -1,3 +1,5 @@
+import { onLoad } from '../utils/utils.js'
+
 /* 
 var sideBar = document.getElementById("mobile-nav");
 var openSidebar = document.getElementById("openSideBar");
@@ -152,7 +154,7 @@ function agregarEventoDelete() {
 
 
 // BONUS - Acceso Restringido - 2. Función onLoad
-const onLoad = async () => {
+/* const onLoad = async () => {
   try {
     const response = await axios.get('/users/me');
     //console.log(response)
@@ -165,6 +167,8 @@ const onLoad = async () => {
   }
 
   getAlbums()
-};
+};  */
 
 window.onload = onLoad;
+window.redirect = redirect;
+getAlbums()

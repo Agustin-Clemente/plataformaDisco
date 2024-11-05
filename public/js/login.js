@@ -81,8 +81,3 @@ const loginUser = async (e) => {
 const loginButton = document.querySelector('input[type="submit"]')
 loginButton.addEventListener('click', (e)=> loginUser(e))
 
-
-
-
-
-

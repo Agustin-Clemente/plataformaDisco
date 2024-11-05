@@ -1,3 +1,5 @@
+import { onLoad } from '../utils/utils.js'
+
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get('album');
 const addButton = document.querySelector('button[type="submit"]')
@@ -6,7 +8,7 @@ const cancelButton = document.getElementById("cancelar")
 //12 - OBJETOS - 3. Validate Inputs
 const addForm = document.forms.form;
 function validar() {
-    console.log(addForm)
+    //console.log(addForm)
     if (addForm.elements.title.value === "" || addForm.elements.duration.value === "" || addForm.elements.link.value === "") {
         addForm.elements.submit.disabled = true
         addForm.elements.submit.classList.add("bg-gray-500")
@@ -76,3 +78,5 @@ const addSong  = async (e) =>{
 cancelButton.addEventListener("click", () => {
     window.location.href = `./album.html?album=${albumId}`;
 });
+
+window.onload = onLoad;

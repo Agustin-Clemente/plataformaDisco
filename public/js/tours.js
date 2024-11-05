@@ -1,3 +1,6 @@
+import { onLoad } from '../utils/utils.js'
+
+
 let span = document.getElementById("welcome");
 let botones = document.querySelectorAll("button")
 
@@ -38,6 +41,7 @@ span.innerHTML = 'Hola ' + nombre + ' <i class="fa-solid fa-ticket"></i>';
 
 //11. ARREGLOS
 window.onload = () => {
+  onLoad()
   if (edad < 18) {
     swal("No puedes comprar", "Debes ser mayor de edad para comprar", "error");
     botones.forEach(boton => {
@@ -112,3 +116,6 @@ function disableSoldOutButtons(fecha) {
     }
   });
 }
+
+// window.onload = onLoad;
+window.getTickets = getTickets;

@@ -1,6 +1,10 @@
+import { onLoad } from '../utils/utils.js'
+
 const addButton = document.querySelector('button[type="submit"]')
 const cancelButton = document.getElementById("cancelar")
 
+
+window.onload = onLoad;
 //12 - OBJETOS - 3. Validate Inputs
 const addForm = document.forms.form;
 function validar() {
@@ -36,7 +40,7 @@ function getInputValues() {
 
 const addAlbum = async (e) => {
     e.preventDefault()
-    objectToSend = getInputValues()
+    const objectToSend = getInputValues()
     try {
         await axios.post(`/albums`, objectToSend)
         swal({
